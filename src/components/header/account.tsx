@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-function Account({}: Props) {
+function Account() {
   return <div>Account</div>
 }
 

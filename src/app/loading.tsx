@@ -3,7 +3,7 @@ import NextTopLoader from 'nextjs-toploader'
 
 export interface ILoadingProps {}
 
-export default function Loading(props: ILoadingProps) {
+export default function Loading() {
   return (
     <NextTopLoader
       color="#dd2222"

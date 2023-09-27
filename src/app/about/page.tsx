@@ -2,7 +2,7 @@ import React from 'react'
 
 export interface IAppProps {}
 
-function About(props: IAppProps) {
+function About() {
   return <div>about</div>
 }
 

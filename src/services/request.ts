@@ -29,7 +29,7 @@ const _makeAuthRequest =
     const requestHeaders = args.headers ? args.headers : {}
     const accessToken = getAccessToken()
 
-    let headers = {
+    const headers = {
       Authorization: `Bearer ${accessToken}`,
       'cache-control': 'no-cache',
     }

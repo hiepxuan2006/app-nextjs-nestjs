@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import createAPIServices from './request'
 
 const ApiUrl = process.env.API_URL

@@ -26,7 +26,7 @@ export const getLocalData = (
   }
 }
 
-export const setLocalData = (key: string, value: any, noPrefix = false) => {
+export const setLocalData = (key: string, value: unknown, noPrefix = false) => {
   const realKey = _getRealKey(key, noPrefix)
 
   const type = typeof value

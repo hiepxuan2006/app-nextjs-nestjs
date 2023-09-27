@@ -1,12 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useTheme } from 'next-themes'
-import React from 'react'
 
-type Props = {}
-
-export const ButtonSwitcher = (props: Props) => {
+export const ButtonSwitcher = () => {
   const { resolvedTheme, setTheme } = useTheme()
   const handleChangeStatus = (e: any) => {
     e.target.checked === true ? setTheme('dark') : setTheme('light')

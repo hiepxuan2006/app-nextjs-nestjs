@@ -1,18 +1,17 @@
 'use client'
 import {
-  faBars,
   faMagnifyingGlass,
   faUserAstronaut,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
 import { useState } from 'react'
 import '../../styles/header.scss'
-import Link from 'next/link'
 import { ButtonSwitcher } from '../buttonSwither'
 import NavbarMobile from './navbarMobile'
 export interface HeaderAppProps {}
 
-export default function Header(props: HeaderAppProps) {
+export default function Header() {
   const [showBox, setShowBox] = useState(false)
   const handleShowBoxSearch = () => {
     setShowBox(!showBox)

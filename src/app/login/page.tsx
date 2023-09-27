@@ -1,12 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 import { signIn } from 'next-auth/react'
-import Head from 'next/head'
 import Image from 'next/image'
 import { ReactNode } from 'react'
 export interface LayoutProps {}
-import type { Metadata } from 'next'
 
-function Login(props: LayoutProps) {
+function Login() {
   const loginWithGoogle = async () => {
     const newwin2 = window.open('http://localhost:3300/auth/google', '_self')
   }

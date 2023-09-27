@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useRef, useEffect, useState } from 'react'
 import { ButtonSwitcher } from '../buttonSwither'
 
-type Props = {}
-
-const NavbarMobile = (props: Props) => {
+const NavbarMobile = () => {
   const [checked, setChecked] = useState<boolean>(false)
   const [isElementDisabled, setIsElementDisabled] = useState<boolean>(false)
   const refHandle = useRef<HTMLDivElement | null>(null)
