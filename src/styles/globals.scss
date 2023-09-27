@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './login.scss';
+@import './footer.scss';
+@import './mixin';
+@import './available.scss';
+@import './btnSwitcher.scss';
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --height-header: 60px;
+  --background-default: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Hide the scrollbar */
+::-webkit-scrollbar {
+  width: 0; /* Adjust the width as needed */
+}
+
+/* Hide the scrollbar track */
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* Hide the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+.switcher-theme {
+  width: 80px;
+  // background-color: antiquewhite;
+  border-radius: 50px;
+}
+.btn-switcher {
+  padding: 4px;
+  svg {
+    font-size: 18px;
+  }
+}
+.hidden {
+  display: none;
+}
+
+.light {
+  background: #77adbb;
+  color: #000;
+}
+.dark {
+  background: #000000;
+  color: #d1f6ff;
+}

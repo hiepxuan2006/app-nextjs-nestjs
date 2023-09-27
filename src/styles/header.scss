@@ -1,0 +1,130 @@
+@import './mixin';
+.header {
+  width: min(100% - 40px, 1200px);
+  height: var(--height-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 1;
+  margin: 0 auto;
+  position: relative;
+  .logo {
+    height: 100%;
+    padding: 6px;
+    picture {
+      height: 100%;
+    }
+    img {
+      height: 100%;
+    }
+  }
+  .nav {
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 600;
+      border: 2px solid transparent;
+      &:hover {
+        border-bottom: 2px solid #ff8787;
+        // transition: 0.5s;
+      }
+    }
+  }
+  .nav-bar-item {
+    display: flex;
+    gap: 20px;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .search i {
+    font-size: 1.5em;
+    margin-left: 20px;
+  }
+  .input-search {
+    padding: 6px 10px;
+    outline: none;
+    border-radius: 10px;
+    display: none;
+  }
+  .show-box {
+    animation: box-search 0.4s ease-in-out;
+  }
+  .nav-bar {
+    display: none;
+  }
+  .nav-bar-mobile {
+    display: none;
+  }
+  //
+  @include mobile {
+    .nav-item-mobile {
+      position: absolute;
+      background-color: #ff8787;
+      border-radius: 10px;
+      gap: 10px;
+      z-index: 1;
+      width: 60vw;
+      display: flex;
+      flex-direction: column;
+      top: 100%;
+      a {
+        padding-left: 10px;
+        padding: 10px;
+      }
+    }
+    .show-nav {
+      right: 0;
+      animation: nav-bar 0.4s ease-out;
+    }
+    .hidden-nav {
+      right: -100vw;
+      animation: hidden-nav 0.4s ease-out;
+      display: none;
+    }
+    .nav-bar-mobile {
+      display: block;
+    }
+
+    .nav-bar {
+      display: flex;
+      padding: 10px;
+    }
+    .nav {
+      // position: relative;
+      order: 3;
+      padding: 10px;
+    }
+  }
+  @keyframes nav-bar {
+    0% {
+      right: -100vw;
+    }
+    100% {
+      right: 0;
+    }
+  }
+  @keyframes hidden-nav {
+    0% {
+      right: 0;
+    }
+    100% {
+      right: -100vw;
+    }
+  }
+  @keyframes box-search {
+    0% {
+      width: 0;
+      display: none;
+    }
+    100% {
+      width: 100px;
+      display: block;
+    }
+  }
+}

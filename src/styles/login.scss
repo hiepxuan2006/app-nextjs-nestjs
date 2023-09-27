@@ -1,0 +1,215 @@
+@import './mixin';
+.login {
+  .background {
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://d33wubrfki0l68.cloudfront.net/b48d3f70dffd76bf3152ad04e2cbb1261ef589c9/header.1af6756a.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .login-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    border: none;
+    background-position: center;
+    background-size: cover;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 700px;
+    padding: 100px 0;
+    flex: 1;
+
+    h2 {
+      font-size: 3.5em;
+      text-align: center;
+      color: #fff;
+      letter-spacing: 10px;
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 2em;
+      text-align: center;
+      color: #fff;
+      margin: 0;
+    }
+
+    pre {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1em;
+      color: #fff;
+    }
+
+    .icon {
+      margin-top: 20px;
+      font-size: 1.5em;
+      display: flex;
+      justify-content: center;
+
+      i {
+        margin-left: 20px;
+        color: #fff;
+      }
+    }
+  }
+
+  .login-form {
+    position: relative;
+    padding: 100px 30px;
+    backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    h2 {
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .input-controller {
+      position: relative;
+      width: 100%;
+      height: 30px;
+      margin-bottom: 40px;
+      i {
+        position: relative;
+        right: -370px;
+        bottom: 27px;
+        color: #fff;
+      }
+    }
+    .input-form {
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid #fff;
+      color: #fff;
+      width: 100%;
+      height: 100%;
+    }
+    .check {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      color: #fff;
+      a {
+        text-decoration: none;
+        color: #fff;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .button {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 15px;
+    }
+    button {
+      width: 100%;
+      height: 40px;
+      background-color: rgba(93, 93, 93, 0.157);
+      border: none;
+      outline: none;
+      font-size: 20px;
+      font-weight: 700;
+      border-radius: 7px;
+      color: #fff;
+      transition: all linear 0.3s;
+      backdrop-filter: 2px;
+
+      &:active {
+        box-shadow:
+          10px 10px 30px #2e1e21,
+          -10px -10px 30px #563a3f;
+      }
+    }
+    .sign-up {
+      display: flex;
+      justify-content: center;
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 700;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      p {
+        color: #fff;
+      }
+    }
+    .login-social {
+      width: 100%;
+
+      button {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      svg {
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
+  @include mobile {
+    .login {
+      height: 100vh;
+      width: 100%;
+    }
+    .content {
+      display: none;
+    }
+    .background {
+      background-image: url('/image/bg.jpg');
+    }
+    .login-page {
+      width: 100vw;
+      padding: 0 10px;
+    }
+    .login-form {
+      padding: 10px;
+      flex: 1;
+      width: 100%;
+      backdrop-filter: blur(0);
+    }
+  }
+
+  @include tablet {
+    .content {
+      display: none;
+    }
+    .login-form {
+      backdrop-filter: blur(0);
+      flex: 1;
+    }
+    .login-page {
+      background-position-x: 70%;
+    }
+  }
+}
