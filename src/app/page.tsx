@@ -1,4 +1,3 @@
-'use client'
 import Slider from '@/components/slider'
 export const metadata = {
   title: 'Home page',
@@ -7,8 +6,6 @@ export const metadata = {
 function Home() {
   return (
     <div className="Home page">
-      {/* <Link href={'/login'}>đăng nhập</Link>
-      <CustomButton text="Đăng nhập" /> */}
       <Slider></Slider>
     </div>
   )
