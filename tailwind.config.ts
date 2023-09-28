@@ -9,11 +9,30 @@ const config: Config = {
   darkMode: ['class', '[data-mode="dark"]'],
   theme: {
     extend: {
+      colors: {
+        primary: '#59a4a4',
+        secondary: '#667085',
+        accent: {
+          DEFAULt: '#ed1d24',
+          hover: '#dd242a',
+        },
+        body: '#dedede',
+      },
+      height: {
+        '60': '60px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'bg-primary': '#59a4a4',
       },
+    },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1300px',
     },
   },
   plugins: [],

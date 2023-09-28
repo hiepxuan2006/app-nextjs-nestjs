@@ -1,3 +1,4 @@
+'use client'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useRef, useEffect, useState } from 'react'
@@ -10,7 +11,6 @@ const NavbarMobile = () => {
 
   const handleOutsideClick = (e: MouseEvent) => {
     if (refHandle.current && !refHandle.current.contains(e.target as Node)) {
-      console.log('aaaaaaaaaa')
     } else {
       setIsElementDisabled(false)
       setChecked(false)

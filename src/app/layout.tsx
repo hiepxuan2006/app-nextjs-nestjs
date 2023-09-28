@@ -1,11 +1,11 @@
-import Footer from '@/components/footer'
+'use client'
 import Header from '@/components/header'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import NextTopLoader from 'nextjs-toploader'
 import '../styles/globals.scss'
 import Providers from './Provider'
-
+import { motion } from 'framer-motion'
 config.autoAddCss = false
 
 export default function RootLayout({
@@ -17,19 +17,19 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <NextTopLoader
-            color="#dd2222"
-            initialPosition={1}
-            crawlSpeed={200}
-            height={3}
-            crawl={false}
-            showSpinner={false}
-            speed={200}
-            shadow="0 0 10px #2299DD,0 0 5px #2299DD"
-          />
+          {/* <motion.div
+            className="flex flex-row w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+          > */}
+          <NextTopLoader color="#dd2222" height={3} showSpinner={false} />
           <Header />
-          {children}
-          <Footer />
+          <motion.div layout transition={{ type: 'tween' }}>
+            <div className=" mt-16 mx-auto">{children}</div>
+          </motion.div>
+          {/* </motion.div> */}
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>

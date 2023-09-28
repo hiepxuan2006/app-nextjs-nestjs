@@ -1,5 +1,8 @@
 @import './mixin';
+
 .login {
+  position: relative;
+
   .background {
     width: 100%;
     height: 100vh;
@@ -11,19 +14,19 @@
 
   .login-page {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     width: 75%;
     height: 75%;
     transform: translate(-50%, -50%);
     display: flex;
-    margin-top: 10px;
     border: 1px solid black;
     border-radius: 10px;
     border: none;
     background-position: center;
     background-size: cover;
   }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -36,7 +39,7 @@
     h2 {
       font-size: 3.5em;
       text-align: center;
-      color: #fff;
+
       letter-spacing: 10px;
       margin: 0;
     }
@@ -44,7 +47,7 @@
     h3 {
       font-size: 2em;
       text-align: center;
-      color: #fff;
+
       margin: 0;
     }
 
@@ -52,7 +55,7 @@
       margin-top: 20px;
       text-align: center;
       font-size: 1em;
-      color: #fff;
+
     }
 
     .icon {
@@ -63,7 +66,7 @@
 
       i {
         margin-left: 20px;
-        color: #fff;
+
       }
     }
   }
@@ -77,24 +80,28 @@
     align-items: center;
     justify-content: center;
     flex: 1;
+
     h2 {
       font-size: 2em;
       text-align: center;
       margin-bottom: 20px;
-      color: #fff;
+
     }
+
     .input-controller {
       position: relative;
       width: 100%;
       height: 30px;
       margin-bottom: 40px;
+
       i {
         position: relative;
         right: -370px;
         bottom: 27px;
-        color: #fff;
+
       }
     }
+
     .input-form {
       font-size: 16px;
       display: flex;
@@ -105,28 +112,33 @@
       border: none;
       outline: none;
       border-bottom: 2px solid #fff;
-      color: #fff;
+
       width: 100%;
       height: 100%;
     }
+
     .check {
       display: flex;
       justify-content: space-between;
       margin-bottom: 40px;
-      color: #fff;
+
+
       a {
         text-decoration: none;
-        color: #fff;
+
+
         &:hover {
           text-decoration: underline;
         }
       }
     }
+
     .button {
       width: 100%;
       height: 40px;
       margin-bottom: 15px;
     }
+
     button {
       width: 100%;
       height: 40px;
@@ -136,7 +148,7 @@
       font-size: 20px;
       font-weight: 700;
       border-radius: 7px;
-      color: #fff;
+
       transition: all linear 0.3s;
       backdrop-filter: 2px;
 
@@ -146,30 +158,34 @@
           -10px -10px 30px #563a3f;
       }
     }
+
     .sign-up {
       display: flex;
       justify-content: center;
+
       a {
         text-decoration: none;
-        color: #fff;
+
         font-weight: 700;
+
         &:hover {
           text-decoration: underline;
         }
       }
-      p {
-        color: #fff;
-      }
+
+      p {}
     }
+
     .login-social {
       width: 100%;
 
       button {
-        color: #fff;
+
         display: flex;
         align-items: center;
         justify-content: center;
       }
+
       svg {
         height: 20px;
         width: 20px;
@@ -182,16 +198,20 @@
       height: 100vh;
       width: 100%;
     }
+
     .content {
       display: none;
     }
+
     .background {
-      background-image: url('/image/bg.jpg');
+      // background-image: url('/image/bg.jpg');
     }
+
     .login-page {
       width: 100vw;
       padding: 0 10px;
     }
+
     .login-form {
       padding: 10px;
       flex: 1;
@@ -204,10 +224,12 @@
     .content {
       display: none;
     }
+
     .login-form {
       backdrop-filter: blur(0);
       flex: 1;
     }
+
     .login-page {
       background-position-x: 70%;
     }

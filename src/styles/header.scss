@@ -8,7 +8,6 @@
   gap: 10px;
   z-index: 1;
   margin: 0 auto;
-  position: relative;
   .logo {
     height: 100%;
     padding: 6px;
@@ -35,26 +34,7 @@
     display: flex;
     gap: 20px;
   }
-  .search {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-  }
 
-  .search i {
-    font-size: 1.5em;
-    margin-left: 20px;
-  }
-  .input-search {
-    padding: 6px 10px;
-    outline: none;
-    border-radius: 10px;
-    display: none;
-  }
-  .show-box {
-    animation: box-search 0.4s ease-in-out;
-  }
   .nav-bar {
     display: none;
   }
@@ -62,6 +42,101 @@
     display: none;
   }
   //
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    .account {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+      &:hover .account-action {
+        display: block;
+      }
+    }
+    .account-action {
+      position: absolute;
+      width: 200px;
+      top: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      display: none;
+      li {
+        padding: 10px;
+        cursor: pointer;
+        color: #000;
+        &:hover {
+          background-color: #d16161;
+        }
+      }
+    }
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .search i {
+      font-size: 1.5em;
+      margin-left: 20px;
+    }
+    .input-search {
+      padding: 6px 0;
+      outline: none;
+      border-radius: 10px;
+      width: 0;
+      position: relative;
+    }
+    .input {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .search-loading {
+      display: none;
+      position: absolute;
+      right: 10px;
+    }
+    .show-loading {
+      display: block;
+      -webkit-animation-name: rotate;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+    }
+    .show-box {
+      width: 200px;
+      animation: box-search 0.4s ease-in-out;
+    }
+    .cart {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      position: relative;
+      cursor: pointer;
+      .cart-quantity {
+        position: absolute;
+        top: 4px;
+        right: -8px;
+        height: 24px;
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+      .quantity {
+      }
+    }
+  }
   @include mobile {
     .nav-item-mobile {
       position: absolute;
@@ -101,6 +176,7 @@
       padding: 10px;
     }
   }
+
   @keyframes nav-bar {
     0% {
       right: -100vw;
@@ -119,12 +195,21 @@
   }
   @keyframes box-search {
     0% {
-      width: 0;
       display: none;
+      width: 0;
     }
     100% {
-      width: 100px;
+      width: 200px;
       display: block;
+      padding: 6px;
+    }
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 }
