@@ -1,11 +1,13 @@
 'use client'
 import Header from '@/components/header'
+import Message from '@/components/messages'
+import { Notify } from '@/utils/toast'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { motion } from 'framer-motion'
 import NextTopLoader from 'nextjs-toploader'
 import '../styles/globals.scss'
 import Providers from './Provider'
-import { motion } from 'framer-motion'
 config.autoAddCss = false
 
 export default function RootLayout({
@@ -14,22 +16,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" style={{}}>
       <body>
         <Providers>
-          {/* <motion.div
-            className="flex flex-row w-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-          > */}
           <NextTopLoader color="#dd2222" height={3} showSpinner={false} />
           <Header />
           <motion.div layout transition={{ type: 'tween' }}>
-            <div className=" mt-16 mx-auto">{children}</div>
+            <div className=" my-16 mx-auto w-full lg:w-[1200px]">
+              {children}
+            </div>
           </motion.div>
-          {/* </motion.div> */}
+          <Message />
           {/* <Footer /> */}
+          <Notify />
         </Providers>
       </body>
     </html>

@@ -1,215 +1,46 @@
-@import './mixin';
-.header {
-  width: min(100% - 40px, 1200px);
-  height: var(--height-header);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  z-index: 1;
-  margin: 0 auto;
-  .logo {
-    height: 100%;
-    padding: 6px;
-    picture {
-      height: 100%;
-    }
-    img {
-      height: 100%;
-    }
-  }
-  .nav {
-    a {
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 600;
-      border: 2px solid transparent;
-      &:hover {
-        border-bottom: 2px solid #ff8787;
-        // transition: 0.5s;
-      }
-    }
-  }
-  .nav-bar-item {
-    display: flex;
-    gap: 20px;
-  }
+  @import './mixin';
 
-  .nav-bar {
-    display: none;
-  }
-  .nav-bar-mobile {
-    display: none;
-  }
-  //
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    height: 100%;
-    .account {
-      position: relative;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      padding: 10px;
-      &:hover .account-action {
-        display: block;
-      }
-    }
-    .account-action {
-      position: absolute;
-      width: 200px;
-      top: 100%;
-      border-radius: 10px;
-      overflow: hidden;
-      display: none;
-      li {
-        padding: 10px;
-        cursor: pointer;
-        color: #000;
-        &:hover {
-          background-color: #d16161;
+  .header {
+    .header-right {
+      .account {
+        &:hover .account-action {
+          display: block;
         }
       }
     }
-    .search {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
+
+    @include mobile {
+
+      .show-nav {
+        right: 0;
+        animation: nav-bar 0.4s ease-out;
+      }
+
+      .hidden-nav {
+        right: -100vw;
+        animation: hidden-nav 0.4s ease-out;
+      }
+
     }
 
-    .search i {
-      font-size: 1.5em;
-      margin-left: 20px;
-    }
-    .input-search {
-      padding: 6px 0;
-      outline: none;
-      border-radius: 10px;
-      width: 0;
-      position: relative;
-    }
-    .input {
-      position: relative;
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
-    .search-loading {
-      display: none;
-      position: absolute;
-      right: 10px;
-    }
-    .show-loading {
-      display: block;
-      -webkit-animation-name: rotate;
-      -webkit-animation-duration: 1s;
-      -webkit-animation-iteration-count: infinite;
-      -webkit-animation-timing-function: linear;
-    }
-    .show-box {
-      width: 200px;
-      animation: box-search 0.4s ease-in-out;
-    }
-    .cart {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      position: relative;
-      cursor: pointer;
-      .cart-quantity {
-        position: absolute;
-        top: 4px;
-        right: -8px;
-        height: 24px;
-        width: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
+    @keyframes nav-bar {
+      0% {
+        right: -100vw;
       }
-      .quantity {
+
+      100% {
+        right: 0;
       }
-    }
-  }
-  @include mobile {
-    .nav-item-mobile {
-      position: absolute;
-      background-color: #ff8787;
-      border-radius: 10px;
-      gap: 10px;
-      z-index: 1;
-      width: 60vw;
-      display: flex;
-      flex-direction: column;
-      top: 100%;
-      a {
-        padding-left: 10px;
-        padding: 10px;
-      }
-    }
-    .show-nav {
-      right: 0;
-      animation: nav-bar 0.4s ease-out;
-    }
-    .hidden-nav {
-      right: -100vw;
-      animation: hidden-nav 0.4s ease-out;
-      display: none;
-    }
-    .nav-bar-mobile {
-      display: block;
     }
 
-    .nav-bar {
-      display: flex;
-      padding: 10px;
-    }
-    .nav {
-      // position: relative;
-      order: 3;
-      padding: 10px;
-    }
-  }
+    @keyframes hidden-nav {
+      0% {
+        right: 0;
+      }
 
-  @keyframes nav-bar {
-    0% {
-      right: -100vw;
+      100% {
+        right: -100vw;
+      }
     }
-    100% {
-      right: 0;
-    }
+
   }
-  @keyframes hidden-nav {
-    0% {
-      right: 0;
-    }
-    100% {
-      right: -100vw;
-    }
-  }
-  @keyframes box-search {
-    0% {
-      display: none;
-      width: 0;
-    }
-    100% {
-      width: 200px;
-      display: block;
-      padding: 6px;
-    }
-  }
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-}

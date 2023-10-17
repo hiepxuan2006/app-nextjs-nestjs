@@ -9,6 +9,10 @@ const config: Config = {
   darkMode: ['class', '[data-mode="dark"]'],
   theme: {
     extend: {
+      zIndex: {
+        '100': '100',
+        '110': '110',
+      },
       colors: {
         primary: '#59a4a4',
         secondary: '#667085',

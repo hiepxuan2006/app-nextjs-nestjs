@@ -1,57 +1,66 @@
 'use client'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useRef, useEffect, useState } from 'react'
-import { ButtonSwitcher } from '../buttonSwither'
+import Link from 'next/link'
+import React, { useRef, useState } from 'react'
 
 const NavbarMobile = () => {
   const [checked, setChecked] = useState<boolean>(false)
-  const [isElementDisabled, setIsElementDisabled] = useState<boolean>(false)
   const refHandle = useRef<HTMLDivElement | null>(null)
-
-  const handleOutsideClick = (e: MouseEvent) => {
-    if (refHandle.current && !refHandle.current.contains(e.target as Node)) {
-    } else {
-      setIsElementDisabled(false)
-      setChecked(false)
-    }
-  }
 
   const onchangeNavbar = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked)
-    setIsElementDisabled(e.target.checked)
   }
 
-  useEffect(() => {
-    document.addEventListener('click', handleOutsideClick)
-
-    return () => {
-      document.removeEventListener('click', handleOutsideClick)
-    }
-  }, [])
-
   return (
-    <label className="nav-bar-mobile ">
+    <label className="nav-bar-mobile  block md:hidden">
       <input
-        checked={isElementDisabled}
         onChange={onchangeNavbar}
+        checked={checked}
         type="checkbox"
         name=""
         id=""
         hidden
       />
-      <FontAwesomeIcon icon={faBars} style={{ fontSize: '28px' }} />
+      {checked ? (
+        <FontAwesomeIcon icon={faClose} style={{ fontSize: '28px' }} />
+      ) : (
+        <FontAwesomeIcon icon={faBars} style={{ fontSize: '28px' }} />
+      )}
       <div
-        className={`nav-item-mobile  ${
-          checked && isElementDisabled ? 'show-nav' : 'hidden-nav'
+        className={`nav-item-mobile flex absolute bg-primary rounded-b-md gap-2 z-100 w-full flex-col top-full md:hidden ${
+          checked ? 'show-nav' : 'hidden-nav'
         }`}
         ref={refHandle}
       >
-        <a href="#"> Home </a>
-        <a href="#"> About </a>
-        <a href="#"> Service </a>
-        <a href="#"> Contact </a>
-        <ButtonSwitcher />
+        <Link
+          onClick={() => setChecked(false)}
+          className="p-2 decoration-transparent text-xl border-2 hover:bg-green-700 border-transparent"
+          href="/"
+        >
+          Home
+        </Link>
+        <Link
+          onClick={() => setChecked(false)}
+          className="p-2 decoration-transparent text-xl border-2 hover:bg-green-700 border-transparent"
+          href="/product/2"
+        >
+          About
+        </Link>
+        <Link
+          onClick={() => setChecked(false)}
+          className="p-2 decoration-transparent text-xl border-2 hover:bg-green-700 border-transparent"
+          href="#"
+        >
+          Service
+        </Link>
+        <Link
+          onClick={() => setChecked(false)}
+          className="p-2 decoration-transparent text-xl border-2 hover:bg-green-700 border-transparent"
+          href="#"
+        >
+          Contact
+        </Link>
       </div>
     </label>
   )

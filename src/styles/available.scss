@@ -1,0 +1,119 @@
+.animation-chat {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid #00aff2;
+    border-radius: 10px;
+
+    .animation {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .animation-img {
+
+        animation: ring-ring 1s infinite linear;
+        animation-delay: 0s;
+    }
+
+    .message-circle {
+        width: 80px;
+        height: 80px;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        background-color: transparent;
+        border-radius: 100%;
+        border: 2px solid rgba(30, 30, 30, 0.4);
+        animation: circle-anim 1s infinite ease-in-out;
+        transition: all .5s;
+        opacity: .1;
+        border-color: #00aff2;
+        opacity: .5;
+    }
+
+    .message-fill {
+        width: 60px;
+        height: 60px;
+
+        position: absolute;
+        border-radius: 100%;
+        border: 2px solid transparent;
+        opacity: .1;
+        animation: fill-anim 2s infinite ease-in-out;
+        transition: all .5s;
+        background-color: #00aff2;
+
+    }
+}
+
+@keyframes ring-ring {
+    0% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    10% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    20% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    30% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    40% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    50% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    100% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+@keyframes circle-anim {
+    0% {
+        transform: rotate(0) scale(.5) skew(1deg);
+        opacity: .1
+    }
+
+    30% {
+        transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .5
+    }
+
+    100% {
+        transform: rotate(0) scale(1) skew(1deg);
+        opacity: .1
+    }
+
+}
+
+@keyframes fill-anim {
+    0% {
+        transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+
+    50% {
+        transform: rotate(0) scale(1) skew(1deg);
+        opacity: .2
+    }
+
+    100% {
+        transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+}

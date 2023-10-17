@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-sky-100;
+    @apply bg-white;
   }
 
   .h1 {
@@ -42,7 +42,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --height-header: 60px;
-  --background-default: #000;
+  --color-primary: #59a4a4;
 }
 
 body {
@@ -90,7 +90,7 @@ a {
 }
 
 .light {
-  // background: #77adbb;
+  background: #f9feff;
   color: #fff;
 }
 
@@ -106,4 +106,28 @@ a {
 .slider {
   width: min(100%, 1200px);
   margin: 0 auto;
+}
+
+
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-slide-thumb-active {
+  opacity: .6;
 }

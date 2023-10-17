@@ -26,7 +26,7 @@ export default function ProductGallery({ image }: ProductGalleryProps) {
     )
   }
   return (
-    <div className="product-gallery flex   flex-col  lg:flex-row-reverse sm:flex-col   gap-0  lg:w-8/12  sm:w-full lg:h-96">
+    <div className="product-gallery flex   flex-col  lg:flex-row-reverse sm:flex-col h-full  gap-0  lg:w-8/12  sm:w-full lg:h-96">
       <div
         className="overflow-hidden relative lg:w-4/5 rounded-lg "
         onClick={() => setShowLightbox(true)}
@@ -48,7 +48,7 @@ export default function ProductGallery({ image }: ProductGalleryProps) {
       </div>
       <ul className=" hidden md:flex lg:flex-col md:text-center  w-full h-1/4 lg:h-full lg:w-1/5 gap-1 overflow-hidden lg:overflow-y-auto overflow-x-auto  items-center">
         {image.thumbnails.map((element, index) => (
-          <Fragment>
+          <Fragment key={index}>
             <li
               className={`cursor-pointer w-24 h-full lg:h-24  shrink-0 lg:w-24 p-1  `}
               key={index}
