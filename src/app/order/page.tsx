@@ -8,6 +8,7 @@ import { formattedNumber } from '@/utils/fomatCurrency'
 const Order = () => {
   return (
     <section className="order">
+      <title>Order</title>
       <div className="grid grid-cols-3 relative">
         <div className="col-start-1 col-span-3 lg:col-span-2">
           <div className="header-order border-b-2 hidden grid-cols-6 gap-3 py-2 md:grid">

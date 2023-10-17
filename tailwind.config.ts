@@ -25,6 +25,12 @@ const config: Config = {
       height: {
         '60': '60px',
       },
+      backgroundColor: {
+        primary_op: 'rgba(89,164,164,0.1)',
+      },
+      boxShadow: {
+        primary: '20px -20px 40px 0 rgba(89,164,164,0.1) inset ',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

@@ -1,3 +1,5 @@
+import FlashSale from '@/components/flashSale'
+import HotSale from '@/components/flashSale/hotSale'
 import Sliders from '@/components/sliders'
 export const metadata = {
   title: 'Home page',
@@ -8,6 +10,8 @@ function Home() {
     <div className="Home page">
       {/* <Slider></Slider> */}
       <Sliders />
+      <FlashSale />
+      <HotSale />
     </div>
   )
 }

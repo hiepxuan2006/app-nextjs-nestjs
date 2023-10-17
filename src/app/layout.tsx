@@ -22,7 +22,7 @@ export default function RootLayout({
           <NextTopLoader color="#dd2222" height={3} showSpinner={false} />
           <Header />
           <motion.div layout transition={{ type: 'tween' }}>
-            <div className=" my-16 mx-auto w-full lg:w-[1200px]">
+            <div className=" my-16 mx-auto w-full px-2 xl:w-[1200px]">
               {children}
             </div>
           </motion.div>
