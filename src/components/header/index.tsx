@@ -1,34 +1,24 @@
-import Link from 'next/link'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client'
 import { useState } from 'react'
 import '../../styles/header.scss'
 import ModalAuth from '../auth'
-import Account from './account'
-import Cart from './cart'
-import NavbarMobile from './navbarMobile'
-import Search from './search'
-import NavMobile from '../navMobile'
+import { TopHeader } from './topHeader'
+import Link from 'next/link'
 export interface HeaderAppProps {}
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(false)
+
   return (
-    <header className="bg-primary z-30 fixed top-0  h-[60px] w-full flex items-center justify-center">
-      <div className="header relative  flex h-[var(--height-header)] w-full lg:w-[1200px] items-center justify-between gap-2 mx-auto my-0 ">
-        <Link href={'/'} className="logo hidden md:block h-full p-1">
-          <picture className="h-full">
-            <img src="/image/logo.png" alt="logo" className="h-full " />
-          </picture>
-        </Link>
-        <nav className="nav md:hidden p-2 ">
-          <NavbarMobile />
+    <header className=" z-30  h-120 w-full flex items-center justify-center flex-col mt-12 md:mt-0">
+      <TopHeader />
+      <div className="header relative border-b border-zinc-800  flex h-[var(--height-header)] w-full items-center justify-between gap-2 mx-auto my-0 ">
+        <nav className="md:flex flex gap-2 p-2">
+          <Link href="/info-phim/test">home</Link>
+          <Link href="/xem-phim/test">category</Link>
         </nav>
-        <div className="header-right flex items-center gap-2 h-full">
-          <Search />
-          <Cart />
-          <Account setIsVisible={setIsVisible} />
-          {/* <ButtonSwitcher /> */}
-          <NavMobile />
-        </div>
+        <nav className="nav md:hidden p-2 ">{/* <NavbarMobile /> */}</nav>
       </div>
       <ModalAuth isVisible={isVisible} setIsVisible={setIsVisible} />
     </header>

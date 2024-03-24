@@ -37,12 +37,12 @@ export default function ProductGallery({ image }: ProductGalleryProps) {
           alt="gallery-cover-image"
         />
         <button
-          className=" md:hidden text-lg p-2 w-8 h-8 flex items-center justify-center bg-sky-200 rounded-full absolute top-1/2 translate-y--2/4 right-1"
+          className=" md:hidden text-lg p-2 w-8 h-8 flex items-center justify-center bg-[#A3765D] rounded-full absolute top-1/2 translate-y--2/4 right-1"
           onClick={goToNextSlide}
         >
           <FontAwesomeIcon className="decoration-white" icon={faChevronRight} />
         </button>
-        <button className="md:hidden text-lg p-2 w-8 h-8 flex items-center justify-center bg-sky-200 rounded-full absolute top-1/2 translate-y--2/4 left-1">
+        <button className="md:hidden text-lg p-2 w-8 h-8 flex items-center justify-center bg-[#A3765D] rounded-full absolute top-1/2 translate-y--2/4 left-1">
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
       </div>

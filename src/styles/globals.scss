@@ -117,7 +117,6 @@ a {
   display: flex !important;
   justify-content: center;
   align-items: center !important;
-  overflow: hidden;
   position: relative;
 }
 
@@ -149,28 +148,20 @@ a {
 .swiper-button-prev {
   height: 40px !important;
   width: 40px !important;
+  position: absolute;
+  top: 0 !important;
 
   &::after {
     height: 100% !important;
     width: 100% !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     border-radius: 50%;
     background-color: rgba(89, 164, 164, 0.6);
-    overflow: hidden;
     color: #f9feff;
     font-size: 18px !important;
   }
 }
 
-@keyframes border {
-  0% {
-    width: 0;
-  }
-
-  100% {
-    width: 100%;
-  }
-
+.art-video {
+  height: fit-content !important;
 }

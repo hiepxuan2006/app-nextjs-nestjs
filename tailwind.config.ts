@@ -22,14 +22,22 @@ const config: Config = {
         },
         body: '#dedede',
       },
+      borderWidth: {
+        default: '1px',
+      },
       height: {
         '60': '60px',
+        '120': '120px',
       },
       backgroundColor: {
         primary_op: 'rgba(89,164,164,0.1)',
+        primary_op5: 'rgba(89,164,164,0.5)',
+        bg_f9: '#f9f9f9',
       },
       boxShadow: {
         primary: '20px -20px 40px 0 rgba(89,164,164,0.1) inset ',
+        inset: '0 5px 7px -5px #ccc inset',
+        box_search: '1px 1px 27px 1px rgba(0,0,0,0.5)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

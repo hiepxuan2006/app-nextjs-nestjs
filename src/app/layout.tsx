@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import NextTopLoader from 'nextjs-toploader'
 import '../styles/globals.scss'
 import Providers from './Provider'
+import Footer from '@/components/footer'
 config.autoAddCss = false
 
 export default function RootLayout({
@@ -18,18 +19,22 @@ export default function RootLayout({
   return (
     <html lang="en" style={{}}>
       <body>
-        <Providers>
-          <NextTopLoader color="#dd2222" height={3} showSpinner={false} />
-          <Header />
-          <motion.div layout transition={{ type: 'tween' }}>
-            <div className=" my-16 mx-auto w-full px-2 xl:w-[1200px]">
-              {children}
-            </div>
-          </motion.div>
-          <Message />
-          {/* <Footer /> */}
-          <Notify />
-        </Providers>
+        <div className="bg-[#424040] text-gray-200">
+          <div className="bg-[#151414] max-w-[1024px] mx-auto md:px-4 px-1">
+            <Providers>
+              <NextTopLoader color="#dd2222" height={3} showSpinner={false} />
+              <Header />
+              <motion.div layout transition={{ type: 'tween' }}>
+                <div className=" mt-4 ">
+                  {children}
+                  <Footer />
+                </div>
+              </motion.div>
+              <Message />
+              <Notify />
+            </Providers>
+          </div>
+        </div>
       </body>
     </html>
   )

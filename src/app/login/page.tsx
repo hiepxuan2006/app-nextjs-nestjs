@@ -14,39 +14,42 @@ function Login() {
 
   return (
     <AnimatePresence>
-      <div className="login">
-        <div className="background" />
-        <section className="login-page">
-          <div className="login-form">
-            <h2> Login </h2>
-            <div className="input-controller">
-              <input type="text" className="input-form" placeholder="Email" />
+      <div className="login  flex justify-center mx-2">
+        <section className="login-page  rounded-md w-full lg:w-96  p-4">
+          <div className="login-form flex items-center gap-2 flex-col">
+            <h2 className="text-xl font-normal"> Login </h2>
+            <div className="input-controller w-full p-2 ">
+              <input
+                type="text"
+                className="input-form w-full p-2 rounded-md outline-none border-default border-black "
+                placeholder="Email"
+              />
               <i className="fa-solid fa-envelope" />
             </div>
-            <div className="input-controller">
+            <div className="input-controller w-full p-2   ">
               <input
                 type="password"
-                className="input-form"
+                className="input-form w-full p-2 rounded-md border-default border-black outline-none "
                 placeholder="Password"
               />
               <i className="fa-solid fa-lock" />
             </div>
-            <div className="check">
+            <div className="check flex justify-between w-full p-2 ">
               <label>
                 <input type="checkbox" />
                 Remember me
               </label>
               <a href="#"> Forgot Password?</a>
             </div>
-            <div className="button">
-              <button className="btn"> Login </button>
+            <div className="button p-2  w-full">
+              <button className="btn bg-[#A3765D] text-xl p-2"> Login </button>
             </div>
-            <div className="login-social  flex gap-2 ">
+            <div className="login-social mt-2  flex gap-2 ">
               <div
                 onClick={() => loginWithGoogle()}
                 className="button  flex-1 login-google"
               >
-                <button className="btn bg-slate-50">
+                <button className="btn  p-2 bg-[#A3765D]">
                   <Image
                     alt="google"
                     src="/image/google.png"
@@ -59,7 +62,7 @@ function Login() {
                 onClick={() => signIn('facebook')}
                 className="button  flex-1 login-facebook"
               >
-                <button className="btn bg-slate-50">
+                <button className="btn  p-2 bg-[#A3765D]">
                   <Image
                     alt="facebook"
                     src="/image/facebook.png"
@@ -69,23 +72,9 @@ function Login() {
                 </button>
               </div>
             </div>
-            <div className="sign-up gap-2">
+            <div className="sign-up gap-2 flex gap-2">
               <p> Don't have an account?</p>
               <a href="#">Sign up</a>
-            </div>
-          </div>
-          <div className="content">
-            <h2> Welcome!</h2>
-            <h3> To Our Nem Website </h3>
-            <pre>
-              Lorem ipsum, dolor sit amen consenter {'\n'}
-              adipisicing elit. Beatae,asperiores
-            </pre>
-            <div className="icon">
-              <i className="fa-brands fa-instagram" />
-              <i className="fa-brands fa-facebook" />
-              <i className="fa-brands fa-twitter" />
-              <i className="fa-brands fa-github" />
             </div>
           </div>
         </section>
