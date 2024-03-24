@@ -5,9 +5,7 @@ import InfoMovie from '@/components/movie/infoMovie'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
-import { Metadata } from 'next'
 import Link from 'next/link'
-import { Key, useEffect, useState } from 'react'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -17,17 +15,6 @@ async function getData(slug: string) {
   else return null
 }
 
-export async function generateMetadata(params: {
-  slug: string
-}): Promise<Metadata> {
-  return {
-    title: 'Dĩ ái vi oanh',
-    description: '',
-    openGraph: {
-      images: [],
-    },
-  }
-}
 const Movie = async (props: any) => {
   const data = await getData(props.params.slug)
 
