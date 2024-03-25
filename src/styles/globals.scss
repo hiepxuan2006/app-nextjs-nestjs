@@ -165,3 +165,62 @@ a {
 .art-video {
   height: fit-content !important;
 }
+
+// not-found 
+.spotlight[data-v-ccd3db62] {
+  background: linear-gradient(45deg, #00dc82, #36e4da, #0047e1);
+  bottom: -30vh;
+  filter: blur(20vh);
+  height: 40vh
+}
+
+.gradient-border[data-v-ccd3db62] {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: .5rem;
+  position: relative
+}
+
+
+.gradient-border[data-v-ccd3db62] {
+  background-color: #1414144d
+}
+
+.gradient-border[data-v-ccd3db62]:before {
+  background: linear-gradient(90deg, #303030, #303030, #00dc82, #36e4da, #0047e1)
+}
+
+.gradient-border[data-v-ccd3db62]:before {
+  background-size: 400% auto;
+  border-radius: .5rem;
+  bottom: 0;
+  content: "";
+  left: 0;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .5;
+  padding: 2px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background-position .3s ease-in-out, opacity .2s ease-in-out;
+  width: 100%
+}
+
+.gradient-border[data-v-ccd3db62]:hover:before {
+  background-position: -50% 0;
+  opacity: 1
+}
+
+
+.antialiased[data-v-ccd3db62] {
+  position: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

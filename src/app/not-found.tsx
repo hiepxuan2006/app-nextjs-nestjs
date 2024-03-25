@@ -1,18 +1,41 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 
-/* eslint-disable @next/next/no-img-element */
 const Notfound = () => {
   return (
-    <div className="fixed top-0  left-0 right-0 bottom-0 z-50 h-full w-full bg-white flex items-center justify-center">
-      <div className=" flex h-2/3 w-2/3 items-center justify-center flex-col relative">
-        <img
-          src="/image/404.jpg"
-          alt="404"
-          className=" h-full w-full object-contain relative"
-        />
-        <button className=" border-2 p-2 rounded-md absolute bottom-0 w-60   bg-white">
-          <Link href="/">Go to home</Link>
-        </button>
+    <div
+      className="font-sans antialiased bg-black  text-white  grid min-h-screen place-content-center overflow-hidden"
+      data-v-ccd3db62=""
+    >
+      <div
+        className="fixed left-0 right-0 spotlight z-30"
+        data-v-ccd3db62=""
+      ></div>
+      <div className="max-w-520px text-center z-20" data-v-ccd3db62="">
+        <h1
+          className="text-8xl sm:text-10xl font-medium mb-8"
+          data-v-ccd3db62=""
+        >
+          404
+        </h1>
+        <p
+          className="text-xl px-8 sm:px-0 sm:text-4xl font-light mb-16 "
+          data-v-ccd3db62=""
+        >
+          Page Not Found
+        </p>
+        <div
+          className="w-full flex items-center justify-center"
+          data-v-ccd3db62=""
+        >
+          <Link
+            href="/"
+            className="gradient-border text-md sm:text-xl py-2 px-4 sm:py-3 sm:px-6 cursor-pointer"
+            data-v-ccd3db62=""
+          >
+            Go back home
+          </Link>
+        </div>
       </div>
     </div>
   )

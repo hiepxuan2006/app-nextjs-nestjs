@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link'
 import * as React from 'react'
 
 export interface FooterAppProps {}
@@ -8,7 +9,7 @@ export default function Footer() {
     <footer className="border border-zinc-800 bg-black mx-auto text-gray-100 mt-2">
       <div className="flex flex-col justify-between py-10 gap-10 px-6 space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
-          <a
+          <Link
             href="/"
             className="flex justify-center space-x-3 lg:justify-start"
           >
@@ -22,12 +23,12 @@ export default function Footer() {
                 data-nuxt-img=""
               />
             </div>
-          </a>
+          </Link>
           <div className="pt-2">
             <p className="text-gray-300 text-sm">
-              <a className="text-[#d98a5e] hover:opacity-90" href="/">
+              <Link className="text-[#d98a5e] hover:opacity-90" href="/">
                 <strong>Motchill</strong>
-              </a>
+              </Link>
               - Trang web xem phim trực tuyến miễn phí chất lượng cao với giao
               diện trực quan, tốc độ tải trang nhanh, cùng kho phim với hơn
               10.000+ phim mới, phim hay, luôn cập nhật phim nhanh, hứa hẹn sẽ
@@ -42,40 +43,40 @@ export default function Footer() {
             </span>
             <ul className="space-y-1">
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Phim Mới"
                   href="/phim-moi"
                 >
                   Phim Mới
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Phim Chiếu Rạp"
                   href="/phim-chieu-rap"
                 >
                   Phim Chiếu Rạp
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Phim Bộ"
                   href="/phim-bo"
                 >
                   Phim Bộ
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Phim Lẻ"
                   href="/phim-le"
                 >
                   Phim Lẻ
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -83,40 +84,40 @@ export default function Footer() {
             <span className="uppercase text-gray-50">Thể Loại</span>
             <ul className="space-y-1">
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Phim Cổ Trang"
                   href="/the-loai/co-trang"
                 >
                   Phim Cổ Trang
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Phim Đam Mỹ"
                   href="/the-loai/phim-bl"
                 >
                   Phim Đam Mỹ
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Phim Bách Hợp"
                   href="/the-loai/bach-hop"
                 >
                   Phim Bách Hợp
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Phim Viễn Tưởng"
                   href="/the-loai/vien-tuong"
                 >
                   Phim Viễn Tưởng
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -126,46 +127,46 @@ export default function Footer() {
             </span>
             <ul className="space-y-1">
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="DMCA"
                   href="/dmca"
                 >
                   DMCA
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Liên Hệ"
                   href="/lien-he"
                 >
                   Liên Hệ
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Privacy"
                   href="#"
                 >
                   Privacy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm text-gray-400 hover:text-blue-600"
                   title="Terms of Service"
                   href="#"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div className="py-3 text-sm text-center text-gray-400 relative border-t border-zinc-700">
+      <div className="py-3 text-sm text-center text-gray-400  border-t border-zinc-700">
         <span>© 2024 Motchill. All rights reserved.</span>
         <button
           type="button"
@@ -176,13 +177,13 @@ export default function Footer() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="w-5 h-5"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5"
             ></path>
           </svg>

@@ -2,17 +2,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
+import Notfound from '@/app/not-found'
+import ContentLeft from '@/components/home/contentLeft'
 import { faLightbulb, faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
-import { Metadata } from 'next'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 async function getData(slug?: string) {
-  const { data } = await axios(`https://ophim1.com/v1/api/phim/${slug}`)
-  if (data.status === 'success') return data.data
-  else return null
+  try {
+    const { data } = await axios(`https://ophim1.com/v1/api/phim/${slug}`)
+    if (data.status === 'success') return data.data
+    else return null
+  } catch (error) {
+    return null
+  }
 }
 
 const MovieDetail = (props: any) => {
@@ -21,6 +26,7 @@ const MovieDetail = (props: any) => {
   const [light, setLight] = useState<boolean>(true)
   const [movie, setMovie] = useState<any>()
   const [film, setFilm] = useState<any>()
+  const [episodes, setEpisodes] = useState<number>(0)
 
   const endIndex = props.params.slug.indexOf('-tap-')
   const result = props.params.slug.substring(endIndex + 1 + 4)
@@ -28,26 +34,35 @@ const MovieDetail = (props: any) => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getData(resultName)
-      const film = data.item.episodes[0].server_data.forEach((element: any) => {
-        if (element.slug === result) setMovie(element.link_embed)
-      })
+
+      const film =
+        data &&
+        data.item.episodes[0].server_data.forEach((element: any) => {
+          if (element.slug === result) {
+            setMovie(element.link_embed)
+            setEpisodes(element.slug)
+          }
+        })
       setFilm(data)
     }
 
     fetchData()
   }, [result, resultName])
+  console.log(result)
+
   const handleClick = () => {
     setScreen(!screen)
   }
   const handleClickLight = () => {
     setLight(!light)
   }
+  // if (!film) return <Notfound />
   return (
-    <div className="w-full h-[2000px]">
-      <div className="grid grid-cols-6 gap-2">
+    <div className="w-full ">
+      <div className="grid grid-cols-6 grid-flow-row gap-2">
         <div
-          className={` col-span-6  rounded-md overflow-hidden lg:col-span-4  ${
-            screen ? 'lg:col-span-6' : ''
+          className={` col-span-6  rounded-md overflow-hidden  ${
+            screen ? 'md:col-span-6' : 'md:col-span-4'
           }`}
         >
           <div
@@ -55,21 +70,28 @@ const MovieDetail = (props: any) => {
               light ? '' : 'z-30 relative'
             }`}
           >
-            <img src="" alt="" />
-            <iframe
-              className="w-full h-full"
-              title=""
-              src={movie}
-              loading="eager"
-              allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              scrolling="yes"
-            ></iframe>
+            {movie ? (
+              <iframe
+                className="w-full h-full"
+                title=""
+                src={movie}
+                loading="eager"
+                allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <div className="w-full h-full flex justify-center items-center bg-[#ffddcb]">
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 ... text-white bg-indigo-500 "
+                  viewBox="0 0 24 24"
+                ></svg>
+              </div>
+            )}
           </div>
           <div
-            className={`col-span-4  py-4 px-2 rounded-b-md ${
+            className={` py-4 px-2 rounded-b-md ${
               light ? '' : 'bg-black text-white'
-            }  justify-between lg:flex`}
+            }  justify-between flex`}
           >
             <div className="">
               <span
@@ -90,7 +112,7 @@ const MovieDetail = (props: any) => {
             <div className="flex gap-2">
               <span
                 onClick={() => setAutoNext(!autoNext)}
-                className=" text-center hidden lg:inline-block whitespace-nowrap  p-1  border-2 bg-neutral-600 border-zinc-800 rounded-md cursor-pointer text-sm mr-2"
+                className=" text-center  lg:inline-block whitespace-nowrap  p-1  border-2 bg-neutral-600 border-zinc-800 rounded-md cursor-pointer text-sm mr-2"
               >
                 Chuyển tập : {autoNext ? 'On' : 'Off'}
               </span>
@@ -113,8 +135,10 @@ const MovieDetail = (props: any) => {
                       <Link
                         key={index}
                         href={`/xem-phim/${film.item.slug}-tap-${item.slug}`}
-                        className={` py-1 bg-neutral-600 text-white rounded-md min-w-[60px] text-center cursor-pointer ${
-                          result === item.slug ? 'bg-[#A3765D] text-black' : ''
+                        className={` py-1  text-white rounded-md min-w-[60px] text-center cursor-pointer ${
+                          episodes == item.slug
+                            ? 'bg-[#A3765D] '
+                            : 'bg-neutral-600'
                         }`}
                       >
                         Tập {item.name}
@@ -124,100 +148,102 @@ const MovieDetail = (props: any) => {
                 )}
             </div>
           </div>
-          {film && (
-            <div
-              className={` py-2 border-t border-zinc-800 border-opacity-75 pt-3 mt-2 ${
-                light ? '' : 'hidden'
-              }`}
-            >
-              <h1 className="text-2xl font-bold">
-                {film.item.name} tập {result}
-              </h1>
-              <h2 className="pt-1 text-xl">
-                {film.item.name} - {film.item.origin_name} ({film.item.lang})
-              </h2>
-              <h3 className="text-md font-bold">Tập {result}</h3>
-              <div className="pt-2">
-                <ul className="flex">
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                  <li>
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500 mr-1 "
-                    />
-                  </li>
-                </ul>
-                <div className="text-sm pt-1 font-medium">
-                  ( <span>7.7</span>/<span>100 lượt</span>)
-                </div>
-              </div>
-              <div className="mt-2 p-1 text-gray-400 text-justify">
-                <div className="pt-2 leading-relaxed inline">
-                  <p
-                    className="line-clamp-4"
-                    dangerouslySetInnerHTML={{ __html: film.item.content }}
-                  ></p>
-                  <span className="text-[#d98a5e] hover:text-[#e57131] text-sm font-medium whitespace-nowrap">
-                    <Link href={`/info-phim/${film.item.slug}`}>Xem thêm</Link>
-                  </span>
-                </div>
+        </div>
+        {film && (
+          <div
+            className={`col-span-6 md:col-span-4 py-2 border-t border-zinc-800 border-opacity-75 pt-3 mt-2 ${
+              light ? '' : 'hidden'
+            }`}
+          >
+            <h1 className="text-2xl font-bold">
+              {film.item.name} tập {result}
+            </h1>
+            <h2 className="pt-1 text-xl">
+              {film.item.name} - {film.item.origin_name} ({film.item.lang})
+            </h2>
+            <h3 className="text-md font-bold">Tập {result}</h3>
+            <div className="pt-2">
+              <ul className="flex">
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+                <li>
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    className="text-yellow-500 mr-1 "
+                  />
+                </li>
+              </ul>
+              <div className="text-sm pt-1 font-medium">
+                ( <span>7.7</span>/<span>100 lượt</span>)
               </div>
             </div>
-          )}
-          <div className="my-2 border-zinc-800  border-opacity-75 border-t">
+            <div className="mt-2 p-1 text-gray-400 text-justify">
+              <div className="pt-2 leading-relaxed inline">
+                <p
+                  className="line-clamp-4"
+                  dangerouslySetInnerHTML={{ __html: film.item.content }}
+                ></p>
+                <span className="text-[#d98a5e] hover:text-[#e57131] text-sm font-medium whitespace-nowrap">
+                  <Link href={`/info-phim/${film.item.slug}`}>Xem thêm</Link>
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+        {film && (
+          <div className="col-span-6 md:col-span-4 my-2 border-zinc-800  border-opacity-75 border-t">
             <section
               className="py-3 antialiased border-zinc-800  border mt-2"
               id="sectionComment"
@@ -267,13 +293,13 @@ const MovieDetail = (props: any) => {
               </div>
             </section>
           </div>
-        </div>
+        )}
         <div
-          className={`col-span-2 border-default border-zinc-800  py-4 px-2 rounded-md  col-start-5 ${
-            screen ? '' : 'lg:row-start-1'
+          className={`col-span-2  row-span-6  hidden md:block border-default border-zinc-800  py-4 px-2 rounded-md  col-start-5 ${
+            screen ? 'row-start-2 mt-2' : 'row-start-1'
           } `}
         >
-          sidebar
+          {/* <ContentLeft country={film && film.item.country} /> */}
         </div>
       </div>
       {light ? (

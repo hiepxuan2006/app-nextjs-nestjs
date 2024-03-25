@@ -50,7 +50,7 @@ const InfoMovie = ({ data }: { data: any }) => {
                       <Link
                         key={index}
                         href={`/xem-phim/${data.item.slug}-tap-${item.slug}`}
-                        className="py-1 bg-gray-400 text-white rounded-md min-w-[60px] text-center cursor-pointer"
+                        className="py-1 bg-neutral-600 text-sm text-white rounded-md min-w-[60px] text-center cursor-pointer"
                       >
                         Tập {item.name}
                       </Link>

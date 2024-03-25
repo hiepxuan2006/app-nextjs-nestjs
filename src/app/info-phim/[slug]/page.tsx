@@ -1,24 +1,28 @@
 /* eslint-disable @next/next/no-async-client-component */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Notfound from '@/app/not-found'
 import InfoMovie from '@/components/movie/infoMovie'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import Link from 'next/link'
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 async function getData(slug: string) {
-  const { data } = await axios(`https://ophim1.com/v1/api/phim/${slug}`)
-  if (data.status === 'success') return data.data
-  else return null
+  try {
+    const { data } = await axios(`https://ophim1.com/v1/api/phim/${slug}`)
+    if (data.status === 'success') return data.data
+    else return null
+  } catch (error) {
+    return null
+  }
 }
 
 const Movie = async (props: any) => {
   const data = await getData(props.params.slug)
 
-  if (!data) return <div>looix</div>
+  if (!data) return <Notfound />
   return (
     <div>
       <div className="grid grid-cols-3 gap-2 p-2">
@@ -42,7 +46,7 @@ const Movie = async (props: any) => {
               </p>
             </div>
             <div className="episode_current mt-4 mb-4">
-              <p className=" p-2  bg-[#A3765D] rounded-md w-fit text-xl font-normal">
+              <p className="p-2  bg-[#A3765D] rounded-md w-fit text-sm font-normal">
                 {data.item.episode_current}
               </p>
             </div>

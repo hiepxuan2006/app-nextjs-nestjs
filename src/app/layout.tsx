@@ -25,11 +25,9 @@ export default function RootLayout({
               <NextTopLoader color="#dd2222" height={3} showSpinner={false} />
               <Header />
               <motion.div layout transition={{ type: 'tween' }}>
-                <div className=" mt-4 ">
-                  {children}
-                  <Footer />
-                </div>
+                <div className=" mt-4 ">{children}</div>
               </motion.div>
+              <Footer />
               <Message />
               <Notify />
             </Providers>
