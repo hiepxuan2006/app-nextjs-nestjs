@@ -1,20 +1,26 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import Image from "next/legacy/image"
 import Link from 'next/link'
 
 /* eslint-disable @next/next/no-img-element */
-const ItemFilm = ({ item }: { item: any }) => {
+const ItemFilm = ({ item, index }: { item: any; index?: number }) => {
   return (
     <Link
       href={`/info-phim/${item.slug}`}
       className="item-movie h-full w-full rounded-md overflow-hidden   hover:shadow-2xl hover:border-zinc-800 border-2 border-transparent  relative"
     >
       <div className="item-movie-image overflow-hidden w-full  flex items-center justify-center relative h-full">
-        <img
-          loading="lazy"
+        <Image
           src={`https://img.ophim9.cc/uploads/movies/${item.thumb_url}`}
-          className="transition-all object-contain h-full w-full  "
           alt=""
+          loading="lazy"
+          width={300}
+          height={500}
+          placeholder="blur"
+          property={'5'}
+          blurDataURL="/image/blur.jpg"
         />
       </div>
       <div className="absolute top-0 bg-[#A3765D]   w-fit px-2 rounded-r-md text-sm">

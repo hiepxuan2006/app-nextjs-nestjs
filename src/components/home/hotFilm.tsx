@@ -12,6 +12,7 @@ import axios from 'axios'
 import { Key, useEffect, useState } from 'react'
 import { Pagination, Autoplay, Navigation } from 'swiper/modules'
 import ItemFilm from './itemFilm'
+import dynamic from 'next/dynamic'
 
 async function getData(slug: string) {
   const { data } = await axios(
@@ -20,6 +21,10 @@ async function getData(slug: string) {
   if (data.status === 'success') return data.data
   else return null
 }
+const ClientComponent = dynamic(() => import('./itemFilm'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
 const HotFilm = () => {
   const [data, setdata] = useState<any>()
   const [loading, setLoading] = useState<boolean>(true)
@@ -33,6 +38,7 @@ const HotFilm = () => {
     }
     fetch()
   }, [])
+
   if (!data) return ''
   return (
     <Swiper
@@ -56,13 +62,13 @@ const HotFilm = () => {
       className="mySwiper h-full"
     >
       {data &&
-        data?.items.map((item: any, index: Key | null | undefined) => {
+        data?.items.map((item: any, index: number) => {
           return (
             <SwiperSlide
               className="w-full h-full cursor-pointer rounded-md  "
               key={index}
             >
-              <ItemFilm item={item} />
+              <ClientComponent item={item} index={index} />
             </SwiperSlide>
           )
         })}

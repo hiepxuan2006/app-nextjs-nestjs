@@ -1,7 +1,7 @@
 'use client'
 import { faClose, faPaperclip } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { Fragment, useState } from 'react'
 import CustomButton from '../customButton'
 

@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from 'next/link';
 import React, { Fragment, useState } from 'react'
 
 const TabNewFilm = ({ phimBo, phimLe }: { phimBo: any; phimLe: any }) => {
@@ -44,15 +44,16 @@ const TabNewFilm = ({ phimBo, phimLe }: { phimBo: any; phimLe: any }) => {
             >
               {/* <Tooltip key={index} content={`Phim ${item.name + item.year}`}> */}
               <div className="h-[240px] ">
-                <Image
-                  className="h-full w-full object-cover"
-                  src={`https://img.ophim9.cc/uploads/movies/${item.thumb_url}`}
-                  alt=""
-                  layout="responsive"
-                  loading="lazy"
-                  width={500}
-                  height={300}
-                />
+              <Image
+          src={`https://img.ophim9.cc/uploads/movies/${item.thumb_url}`}
+          alt=""
+          loading="lazy"
+          width={300}
+          height={500}
+          placeholder="blur"
+          property={'5'}
+          blurDataURL="/image/blur.jpg"
+        />
               </div>
               <div className="border-x-default border-b-default relative border-zinc-800 p-2 rounded-x">
                 <p className="line-clamp-1 text-sm"> {item.name}</p>
@@ -81,15 +82,16 @@ const TabNewFilm = ({ phimBo, phimLe }: { phimBo: any; phimLe: any }) => {
             >
               {/* <Tooltip key={index} content={`Phim ${item.name + item.year}`}> */}
               <div className="h-[240px] ">
-                <Image
-                  className="h-full w-full object-cover"
-                  src={`https://img.ophim9.cc/uploads/movies/${item.thumb_url}`}
-                  alt=""
-                  layout="responsive"
-                  loading="lazy"
-                  width={500}
-                  height={300}
-                />
+              <Image
+          src={`https://img.ophim9.cc/uploads/movies/${item.thumb_url}`}
+          alt=""
+          loading="lazy"
+          width={300}
+          height={500}
+          placeholder="blur"
+          property={'4'}
+          blurDataURL="/image/blur.jpg"
+        />
               </div>
               <div className="border-x-default border-b-default relative border-zinc-800 p-2 rounded-x">
                 <p className="line-clamp-1 text-sm"> {item.name}</p>

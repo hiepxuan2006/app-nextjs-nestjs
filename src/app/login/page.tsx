@@ -3,7 +3,7 @@
 'use client'
 import { AnimatePresence } from 'framer-motion'
 import { signIn } from 'next-auth/react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { ReactNode } from 'react'
 export interface LayoutProps {}
 

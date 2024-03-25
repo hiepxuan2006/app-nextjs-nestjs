@@ -75,12 +75,12 @@ const MovieDetail = (props: any) => {
                 className="w-full h-full"
                 title=""
                 src={movie}
-                loading="eager"
+                loading="lazy"
                 allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             ) : (
-              <div className="w-full h-full flex justify-center items-center bg-[#ffddcb]">
+              <div className="w-full h-full flex justify-center items-center bg-neutral-800">
                 <svg
                   className="animate-spin h-5 w-5 mr-3 ... text-white bg-indigo-500 "
                   viewBox="0 0 24 24"
