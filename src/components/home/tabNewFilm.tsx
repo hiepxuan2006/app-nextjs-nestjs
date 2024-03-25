@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { Fragment, useState } from 'react'
 
@@ -43,10 +44,14 @@ const TabNewFilm = ({ phimBo, phimLe }: { phimBo: any; phimLe: any }) => {
             >
               {/* <Tooltip key={index} content={`Phim ${item.name + item.year}`}> */}
               <div className="h-[240px] ">
-                <img
+                <Image
                   className="h-full w-full object-cover"
                   src={`https://img.ophim9.cc/uploads/movies/${item.thumb_url}`}
                   alt=""
+                  layout="responsive"
+                  loading="lazy"
+                  width={500}
+                  height={300}
                 />
               </div>
               <div className="border-x-default border-b-default relative border-zinc-800 p-2 rounded-x">
@@ -76,10 +81,14 @@ const TabNewFilm = ({ phimBo, phimLe }: { phimBo: any; phimLe: any }) => {
             >
               {/* <Tooltip key={index} content={`Phim ${item.name + item.year}`}> */}
               <div className="h-[240px] ">
-                <img
+                <Image
                   className="h-full w-full object-cover"
                   src={`https://img.ophim9.cc/uploads/movies/${item.thumb_url}`}
                   alt=""
+                  layout="responsive"
+                  loading="lazy"
+                  width={500}
+                  height={300}
                 />
               </div>
               <div className="border-x-default border-b-default relative border-zinc-800 p-2 rounded-x">
