@@ -3,7 +3,7 @@
 'use client'
 import { AnimatePresence } from 'framer-motion'
 import { signIn } from 'next-auth/react'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import { ReactNode } from 'react'
 export interface LayoutProps {}
 
@@ -17,7 +17,7 @@ function Login() {
       <div className="login  flex justify-center mx-2">
         <section className="login-page  rounded-md w-full lg:w-96  p-4">
           <div className="login-form flex items-center gap-2 flex-col">
-            <h2 className="text-xl font-normal"> Login </h2>
+            <h2 className="text-4xl font-medium"> Login </h2>
             <div className="input-controller w-full p-2 ">
               <input
                 type="text"

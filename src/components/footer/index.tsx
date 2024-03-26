@@ -6,7 +6,7 @@ export interface FooterAppProps {}
 
 export default function Footer() {
   return (
-    <footer className="border border-zinc-800 bg-black mx-auto text-gray-100 mt-2">
+    <footer className="border border-zinc-800 bg-black mx-auto text-gray-100 mt-2 relative">
       <div className="flex flex-col justify-between py-10 gap-10 px-6 space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
           <Link

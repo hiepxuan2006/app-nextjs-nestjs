@@ -11,9 +11,9 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(false)
 
   return (
-    <header className=" z-30  h-120 w-full flex items-center justify-center flex-col mt-12 md:mt-0">
+    <header className="z-30  w-full flex  flex-col">
       <TopHeader />
-      <div className="header relative border-b border-zinc-800  flex h-[var(--height-header)] w-full items-center justify-between gap-2 mx-auto my-0 ">
+      <div className="header relative border-b border-zinc-800 hidden lg:flex h-[var(--height-header)] w-full items-center justify-between gap-2 mx-auto my-0 ">
         <nav className="md:flex flex gap-2 p-2">
           <Link href="/info-phim/test">home</Link>
           <Link href="/xem-phim/test">category</Link>
