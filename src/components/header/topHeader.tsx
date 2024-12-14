@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
@@ -11,16 +13,19 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
-import { ChangeEvent, Fragment, useState } from 'react'
+import { ChangeEvent, Fragment, useEffect, useState } from 'react'
 import { BoxSearch } from './boxSearch'
+import axios from 'axios'
 
 export const TopHeader = () => {
   const [search, setSearch] = useState<string>('')
   const [searchMobile, setSearchMobile] = useState<boolean>(false)
-  const searchDebounce = useDebounce(search, 500)
-  const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+  const searchDebounce = useDebounce(search, 1000)
+
+  const handleChangeSearch = async (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
   }
+
   return (
     <Fragment>
       <div className="h-60 border-b border-zinc-800 px-2 flex w-full items-center gap-3 justify-between relative">

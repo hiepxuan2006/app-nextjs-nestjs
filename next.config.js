@@ -7,7 +7,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'src/styles')],
   },
   images: {
-    domains: ['img.ophim9.cc'],
+    domains: ['img.ophim1.com'],
   },
 }
 

@@ -9,10 +9,9 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 import axios from 'axios'
-import { Key, useEffect, useState } from 'react'
-import { Pagination, Autoplay, Navigation } from 'swiper/modules'
-import ItemFilm from './itemFilm'
 import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
+import { Pagination } from 'swiper/modules'
 
 async function getData(slug: string) {
   const { data } = await axios(
@@ -30,10 +29,10 @@ const HotFilm = () => {
   const [loading, setLoading] = useState<boolean>(true)
   useEffect(() => {
     const fetch = async () => {
-      const results = await axios.get(
-        'https://ophim1.com/v1/api/danh-sach/phim-moi-cap-nhat?page=1'
+      const { data } = await axios.get(
+        'https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1'
       )
-      setdata(results.data.data)
+      setdata(data.data)
       setLoading(false)
     }
     fetch()
@@ -42,7 +41,7 @@ const HotFilm = () => {
   if (!data) return ''
   return (
     <Swiper
-      slidesPerView={2.5}
+      slidesPerView={2}
       spaceBetween={10}
       breakpoints={{
         640: {

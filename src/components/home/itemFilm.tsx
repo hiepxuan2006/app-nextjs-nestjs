@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 
 /* eslint-disable @next/next/no-img-element */
@@ -9,15 +9,16 @@ const ItemFilm = ({ item, index }: { item: any; index?: number }) => {
   return (
     <Link
       href={`/info-phim/${item.slug}`}
-      className="item-movie h-full w-full rounded-md overflow-hidden   hover:shadow-2xl hover:border-zinc-800 border-2 border-transparent  relative"
+      data-v-ccd3db62=""
+      className="item-movie h-full w-full rounded-md overflow-hidden   gradient-border  relative"
     >
       <div className="item-movie-image overflow-hidden w-full  flex items-center justify-center relative h-full">
         <Image
-          src={`https://img.ophim9.cc/uploads/movies/${item.thumb_url}`}
+          className="p-2"
+          src={`http://img.ophim1.com/uploads/movies/${item.thumb_url}`}
           alt=""
           loading="lazy"
-          width={300}
-          height={500}
+          layout="fill"
           placeholder="blur"
           property={'5'}
           blurDataURL="/image/blur.jpg"
