@@ -13,13 +13,6 @@ import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { Pagination } from 'swiper/modules'
 
-async function getData(slug: string) {
-  const { data } = await axios(
-    `https://ophim1.com/v1/api/danh-sach/phim-moi-cap-nhat?page=1`
-  )
-  if (data.status === 'success') return data.data
-  else return null
-}
 const ClientComponent = dynamic(() => import('./itemFilm'), {
   ssr: false,
   loading: () => <p>Loading...</p>,

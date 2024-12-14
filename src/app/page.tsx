@@ -1,5 +1,4 @@
 import HotFilm from '@/components/home/hotFilm'
-import NewFilm from '@/components/home/newFilm'
 // import NominationMovie from '@/components/home/nominationMovie'
 export const metadata = {
   title: 'Home page',
